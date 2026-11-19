@@ -43,5 +43,5 @@ window.PROJECT_IMAGES = {
     ]
   },
   "ar-campus-navigation": { auto: true, autoCaptions: [] },
-  "project-p":            { auto: true, autoCaptions: [] },
+  "project-p":            { auto: true, autoCaptions: ["Project-P title screen"] },
 };

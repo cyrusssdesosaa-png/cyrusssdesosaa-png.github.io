@@ -74,7 +74,7 @@
       $$('.g-strip button', g).forEach((b, j) => b.classList.toggle('on', j === i));
     };
     $$('.g-strip button', g).forEach((b, i) => b.addEventListener('click', () => show(i)));
-    const open = () => lightbox(imgs, cur, title);
+    const open = () => { lbImg.classList.toggle('pixel', !!card.dataset.pixel); lightbox(imgs, cur, title); };
     $('.g-main', g).addEventListener('click', open);
     $('.g-main', g).addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
     // portrait images are letterboxed instead of cropped

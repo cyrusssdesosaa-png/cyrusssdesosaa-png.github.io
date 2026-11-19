@@ -129,6 +129,15 @@ h2{font-size:clamp(26px,3.4vw,36px);margin:0 0 28px;letter-spacing:-.6px;display
 .s-play{position:absolute;inset:0;display:grid;place-items:center;color:#fff;font-style:normal;font-size:14px;background:rgba(0,0,0,.35)}
 .lb-fig video{max-width:100%;max-height:calc(100vh - 130px);border-radius:10px;background:#000;box-shadow:0 30px 80px rgba(0,0,0,.6)}
 .lb-fig video[hidden],.lb-fig img[hidden]{display:none}
+.card[data-pixel] .g-main img,.card[data-pixel] .g-strip img{image-rendering:pixelated;object-fit:contain;object-position:center}
+.lb-fig img.pixel{image-rendering:pixelated}
+.more{margin-top:12px;border:1px solid var(--line);border-radius:12px;padding:10px 14px;background:rgba(255,255,255,.02)}
+.more summary{cursor:pointer;font-weight:600;font-size:14.5px;color:var(--a1);list-style:none}
+.more summary::-webkit-details-marker{display:none}
+.more summary::before{content:"+ ";}
+.more[open] summary::before{content:"− ";}
+.more .bullets{margin-top:8px}
+.more b{color:var(--text)}
 /* designed covers (not screenshots) */
 .cover{position:relative;aspect-ratio:16/10;display:grid;place-items:center;overflow:hidden;isolation:isolate}
 .cover::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:28px 28px;mask-image:radial-gradient(circle at center,#000 30%,transparent 75%);-webkit-mask-image:radial-gradient(circle at center,#000 30%,transparent 75%);z-index:-1}
