@@ -15,10 +15,8 @@ These projects have no screenshots yet and show a designed cover until images ar
 
 | Project | Folder |
 |---|---|
-| AR Campus Navigation System | `assets/projects/ar-campus-navigation/` |
-| Unity Mini-Games | `assets/projects/unity-mini-games/` |
+| AURA – AR Campus Navigation System | `assets/projects/ar-campus-navigation/` |
 | Project-P: Pac-Man Reimagined | `assets/projects/project-p/` |
-| Story Game | `assets/projects/story-game/` |
 
 1. Save images as **WebP** named exactly `1.webp`, `2.webp`, `3.webp` … (no gaps, up to 12).
    Convert with e.g. `cwebp -q 80 shot.png -o 1.webp`, or squoosh.app. Keep them ≤1600px wide.
@@ -26,11 +24,15 @@ These projects have no screenshots yet and show a designed cover until images ar
 3. Optional captions: in `assets/projects/manifest.js`, fill `autoCaptions`, e.g.
    `"project-p": { auto: true, autoCaptions: ["Main menu", "Boss fight"] }` (index 0 = `1.webp`).
 
+Videos: put an H.264 `.mp4` plus a poster image in the folder and use an explicit list, e.g.
+`"ar-campus-navigation": { images: [ { video: "demo-1.mp4", poster: "demo-1.webp", caption: "..." }, { src: "1.webp", caption: "..." } ] }`.
+Videos play muted with controls in the lightbox and only load when opened.
+
 For projects with an explicit `images` list (and `thumbs: true`), add the file to the folder,
 a smaller copy to `thumb/`, and an entry to the list.
 
 ## Image sources
 - Wally Wombats website & Rehab Directives: screenshots of the live sites (wallywombats.com, rehabdirectives.com), Nov 2026.
-- Wally Wombats games: official Google Play store screenshots, © Wally Wombats LLC.
+- Waddle, Whirl, and Wonder: official Google Play store screenshots, © Wally Wombats LLC.
 
 Privacy: no phone number, home address or resume PDF is published here.

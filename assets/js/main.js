@@ -60,14 +60,16 @@
     if (!imgs.length) { g.innerHTML = cover(card); return; }
     g.innerHTML = `<div class="g-main" role="button" tabindex="0" aria-label="Open ${title} gallery">
         <img src="${imgs[0].thumb}" alt="${imgs[0].caption || title}" loading="lazy" decoding="async">
+        <span class="g-play" ${imgs[0].video ? '' : 'hidden'} aria-hidden="true">▶</span>
         ${imgs.length > 1 ? `<span class="g-count">1 / ${imgs.length}</span>` : ''}</div>` +
       (imgs.length > 1 ? `<div class="g-strip">${imgs.map((im, i) =>
-        `<button class="${i ? '' : 'on'}" aria-label="Show image ${i + 1}: ${im.caption || title}"><img src="${im.thumb}" alt="" loading="lazy" decoding="async"></button>`).join('')}</div>` : '');
+        `<button class="${i ? '' : 'on'}" aria-label="Show image ${i + 1}: ${im.caption || title}"><img src="${im.thumb}" alt="" loading="lazy" decoding="async">${im.video ? '<i class="s-play">▶</i>' : ''}</button>`).join('')}</div>` : '');
     const main = $('.g-main img', g), count = $('.g-count', g);
     let cur = 0;
     const show = i => {
       cur = i; main.style.opacity = .3;
       main.src = imgs[i].thumb; main.alt = imgs[i].caption || title;
+      const pb = $('.g-play', g); if (pb) pb.hidden = !imgs[i].video;
       if (count) count.textContent = `${i + 1} / ${imgs.length}`;
       $$('.g-strip button', g).forEach((b, j) => b.classList.toggle('on', j === i));
     };
@@ -85,7 +87,9 @@
     let imgs;
     if (cfg.images && cfg.images.length) {
       const base = `assets/projects/${slug}/`;
-      imgs = cfg.images.map(im => ({ full: base + im.src, thumb: base + (cfg.thumbs ? 'thumb/' : '') + im.src, caption: im.caption || '' }));
+      imgs = cfg.images.map(im => im.video
+        ? { video: base + im.video, full: base + im.poster, thumb: base + im.poster, caption: im.caption || '' }
+        : { full: base + im.src, thumb: base + (cfg.thumbs ? 'thumb/' : '') + im.src, caption: im.caption || '' });
     } else {
       imgs = await probe(slug, cfg.autoCaptions || []);
     }
@@ -93,12 +97,20 @@
   });
 
   /* ---------- lightbox ---------- */
-  const lb = $('#lb'), lbImg = $('#lb img'), lbCap = $('#lb figcaption');
+  const lb = $('#lb'), lbImg = $('#lb img'), lbVid = $('#lb video'), lbCap = $('#lb figcaption');
   let L = [], li = 0, lastFocus = null;
   const render = () => {
-    lbImg.style.opacity = 0;
-    lbImg.onload = () => (lbImg.style.opacity = 1);
-    lbImg.src = L[li].full; lbImg.alt = L[li].caption || '';
+    const it = L[li];
+    lbVid.pause();
+    if (it.video) {
+      lbImg.hidden = true; lbVid.hidden = false;
+      lbVid.poster = it.full; lbVid.src = it.video; lbVid.muted = true; lbVid.play().catch(() => {});
+    } else {
+      lbVid.hidden = true; lbVid.removeAttribute('src'); lbVid.load(); lbImg.hidden = false;
+      lbImg.style.opacity = 0;
+      lbImg.onload = () => (lbImg.style.opacity = 1);
+      lbImg.src = it.full; lbImg.alt = it.caption || '';
+    }
     lbCap.textContent = `${L[li].caption ? L[li].caption + ' · ' : ''}${li + 1} / ${L.length}`;
     $$('.lb-nav', lb).forEach(b => (b.hidden = L.length < 2));
   };
@@ -107,7 +119,7 @@
     lb.hidden = false; requestAnimationFrame(() => lb.classList.add('open'));
     document.body.style.overflow = 'hidden'; render(); $('.lb-x', lb).focus();
   }
-  const close = () => { lb.classList.remove('open'); setTimeout(() => (lb.hidden = true), 200); document.body.style.overflow = ''; lastFocus && lastFocus.focus(); };
+  const close = () => { lbVid.pause(); lb.classList.remove('open'); setTimeout(() => (lb.hidden = true), 200); document.body.style.overflow = ''; lastFocus && lastFocus.focus(); };
   const step = d => { li = (li + d + L.length) % L.length; render(); };
   $('.lb-x', lb).addEventListener('click', close);
   $('.lb-prev', lb).addEventListener('click', () => step(-1));

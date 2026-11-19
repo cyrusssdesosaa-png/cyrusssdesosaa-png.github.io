@@ -21,24 +21,16 @@ window.PROJECT_IMAGES = {
       { src: "6.webp", caption: "Mobile home page" }
     ]
   },
-  "wally-wombats-games": {
+  "waddle-whirl-and-wonder": {
     thumbs: true,
     images: [
-      { src: "1.webp", caption: "Waddle, Whirl, and Wonder: a Wally Wombats game I helped maintain" },
-      { src: "2.webp", caption: "Waddle, Whirl, and Wonder: a Wally Wombats game I helped maintain" },
-      { src: "3.webp", caption: "Waddle, Whirl, and Wonder: a Wally Wombats game I helped maintain" },
-      { src: "4.webp", caption: "Waddle, Whirl, and Wonder: a Wally Wombats game I helped maintain" },
-      { src: "5.webp", caption: "Waddle, Whirl, and Wonder: a Wally Wombats game I helped maintain" },
-      { src: "6.webp", caption: "Waddle, Whirl, and Wonder: a Wally Wombats game I helped maintain" },
-      { src: "7.webp", caption: "Waddle, Whirl, and Wonder: a Wally Wombats game I helped maintain" },
-      { src: "8.webp", caption: "Wally Wombats' Mix & Match: a Wally Wombats game I helped maintain" },
-      { src: "9.webp", caption: "Wally Wombats' Mix & Match: a Wally Wombats game I helped maintain" },
-      { src: "10.webp", caption: "Wally Wombats' Mix & Match: a Wally Wombats game I helped maintain" },
-      { src: "11.webp", caption: "Wally Wombats' Mix & Match: a Wally Wombats game I helped maintain" },
-      { src: "12.webp", caption: "Wally Wombats' Puzzle Mania: a Wally Wombats game I helped maintain" },
-      { src: "13.webp", caption: "Wally Wombats' Puzzle Mania: a Wally Wombats game I helped maintain" },
-      { src: "14.webp", caption: "Wally Wombats' Puzzle Mania: a Wally Wombats game I helped maintain" },
-      { src: "15.webp", caption: "Wally Wombats' Puzzle Mania: a Wally Wombats game I helped maintain" }
+      { src: "1.webp", caption: "Waddle, Whirl, and Wonder (Google Play screenshot)" },
+      { src: "2.webp", caption: "Waddle, Whirl, and Wonder (Google Play screenshot)" },
+      { src: "3.webp", caption: "Waddle, Whirl, and Wonder (Google Play screenshot)" },
+      { src: "4.webp", caption: "Waddle, Whirl, and Wonder (Google Play screenshot)" },
+      { src: "5.webp", caption: "Waddle, Whirl, and Wonder (Google Play screenshot)" },
+      { src: "6.webp", caption: "Waddle, Whirl, and Wonder (Google Play screenshot)" },
+      { src: "7.webp", caption: "Waddle, Whirl, and Wonder (Google Play screenshot)" }
     ]
   },
   "rehab-directives": {
@@ -51,7 +43,5 @@ window.PROJECT_IMAGES = {
     ]
   },
   "ar-campus-navigation": { auto: true, autoCaptions: [] },
-  "unity-mini-games":     { auto: true, autoCaptions: [] },
   "project-p":            { auto: true, autoCaptions: [] },
-  "story-game":           { auto: true, autoCaptions: [] }
 };
