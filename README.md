@@ -26,7 +26,7 @@ These projects have no screenshots yet and show a designed cover until images ar
 
 Videos: put an H.264 `.mp4` plus a poster image in the folder and use an explicit list, e.g.
 `"ar-campus-navigation": { images: [ { video: "demo-1.mp4", poster: "demo-1.webp", caption: "..." }, { src: "1.webp", caption: "..." } ] }`.
-Videos play muted with controls in the lightbox and only load when opened.
+Example: the AURA folder. Videos play muted with controls in the lightbox and only load when opened.
 
 For projects with an explicit `images` list (and `thumbs: true`), add the file to the folder,
 a smaller copy to `thumb/`, and an entry to the list.

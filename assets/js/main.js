@@ -129,6 +129,8 @@
     if (lb.hidden) return;
     if (e.key === 'Escape') close(); else if (e.key === 'ArrowRight') step(1); else if (e.key === 'ArrowLeft') step(-1);
   });
+  const ME = [1, 2, 3].map(n => ({ full: `assets/img/me/${n}.webp`, caption: 'Cyrus de Sosa' }));
+  $$('.me-strip button').forEach(b => b.addEventListener('click', () => { lbImg.classList.remove('pixel'); lightbox(ME, +b.dataset.i); }));
   let sx = null;
   lb.addEventListener('touchstart', e => (sx = e.touches[0].clientX), { passive: true });
   lb.addEventListener('touchend', e => { if (sx == null) return; const dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 45) step(dx < 0 ? 1 : -1); sx = null; });

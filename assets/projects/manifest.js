@@ -42,6 +42,15 @@ window.PROJECT_IMAGES = {
       { src: "4.webp", caption: "Mobile home page" }
     ]
   },
-  "ar-campus-navigation": { auto: true, autoCaptions: [] },
+  "ar-campus-navigation": {
+    images: [
+      { video: "aura-demo-2.mp4", poster: "aura-demo-2.webp", caption: "AURA demo: navigating to the Library with an AR path line, turn prompts and a mini-map" },
+      { video: "aura-demo-1.mp4", poster: "aura-demo-1.webp", caption: "AURA demo: the same indoor route with AR floor arrows, distance prompts and a mini-map" },
+      { src: "1.webp", caption: "AR path line and arrows guiding toward the stairs, with a live distance prompt" },
+      { src: "2.webp", caption: "\"Turn left\" prompt as the AR path bends around a corner" },
+      { src: "3.webp", caption: "\"Arriving\" prompt with a destination marker" },
+      { src: "4.webp", caption: "Distance prompt and floor arrow on the stairs, with the mini-map below" }
+    ]
+  },
   "project-p":            { auto: true, autoCaptions: ["Project-P title screen"] },
 };
